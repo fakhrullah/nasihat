@@ -11,15 +11,24 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
-Route::get('home', 'HomeController@index');
-
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('/',function(){
-	return 'halaman utama';
-});
+// Main page will show a quote with beautiful background
+Route::get('/',[
+    'as' => 'welcome',
+    'uses' => 'WelcomeController@index'
+]);
+
+// About
+Route::get('about', [
+    'as' => 'about.index',
+    'uses'=> 'PageController@about'
+]);
+
+// Resources -> ayat al quran and hadis
+
+// Resources -> backgrounds
+
