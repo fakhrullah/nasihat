@@ -16,6 +16,10 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+Route::get('miaw',function(){
+    return 'miaw';
+});
+
 // Main page will show a quote with beautiful background
 Route::get('/',[
     'as' => 'welcome',
