@@ -5,7 +5,7 @@
     
     <body>
         <div class="quote">
-            miaw
+            miaw miaw
         </div>
     </body>
 </html>
