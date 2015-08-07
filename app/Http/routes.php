@@ -22,8 +22,8 @@ Route::get('miaw',function(){
 
 // Main page will show a quote with beautiful background
 Route::get('/',[
-    'as' => 'welcome',
-    'uses' => 'WelcomeController@index'
+    'as' => 'main',
+    'uses' => 'MainController@index'
 ]);
 
 // About
