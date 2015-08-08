@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Asia/Kuala_Lumpur',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -145,6 +145,11 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+		
+		/*
+		* 
+		*/
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
             
 
 	],
@@ -194,6 +199,9 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+		
+		// me added alias
+		'Carbon'      => 'Carbon\Carbon',
 
 	],
 
