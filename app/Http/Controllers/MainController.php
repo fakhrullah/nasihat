@@ -49,7 +49,7 @@ class MainController extends Controller
         // https://pixabay.com/en/users/Unsplash-242387/
         
         $title = "NASIHAT";
-        $today= \Carbon::today()->addDays(-2);
+        $today= \Carbon::today();
         
         // failsafe if date not available in array
         if($today >  \Carbon::create(2015, 8, 15)){$today=\Carbon::create(2015, 8, 11);}
