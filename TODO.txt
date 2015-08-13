@@ -1,0 +1,5 @@
+TODO 
+
+separate css and js into own file
+
+DONE
