@@ -14,9 +14,9 @@ class CreateQuotesTable extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('quote');
-            $table->string('quote_source', 70);
-            $table->string('quote_source_link')->nullable();
+            $table->text('text');
+            $table->string('source', 70);
+            $table->string('source_link')->nullable();
             $table->date('show_at');
             $table->timestamps();
         });
