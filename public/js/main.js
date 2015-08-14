@@ -1,9 +1,9 @@
 
 window.onload = function () {
     var quoteBackground = document.getElementById('quoteBackground');
-    var imgName = quoteBackground.getAttribute('data-image');
-    console.log(imgName);
-    quoteBackground.style.backgroundImage = 'url(images/' + imgName + ')';
+    var imgUrl = quoteBackground.getAttribute('data-image');
+//    console.log(imgUrl);
+    quoteBackground.style.backgroundImage = 'url('+imgUrl+')';
 
     var windowHeight = window.innerHeight
             || document.documentElement.clientHeight

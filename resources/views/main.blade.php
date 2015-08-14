@@ -12,10 +12,10 @@
                 <div class="source">
                     @if($quote->source_link)
                     <a href="{{$quote->source_link}}">
-                        <span class="source">{{$quote->source}}</span>
+                        <span class="source">[ {{$quote->source}} ]</span>
                     </a>
                     @else
-                    <span class="source">{{$quote->source}}</span>
+                    <span class="source">[ {{$quote->source}} ]</span>
                     @endif
                 </div>
             </div>

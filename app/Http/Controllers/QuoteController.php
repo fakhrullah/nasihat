@@ -49,12 +49,17 @@ class QuoteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $dmY
      * @return Response
      */
-    public function show($id)
+    public function show($dmY)
     {
-        //
+        $title = 'Nasihat '.$dmY;
+        $background = \URL::asset('images/'.$dmY.'.jpg');
+        $showAt = \Carbon::createFromFormat('dmY', $dmY)->format('Y-m-d');
+        $quote = \App\Model\Quote::where('show_at', '=', $showAt)->first();
+        
+        return view('main', compact('title', 'quote', 'background'));
     }
 
     /**
