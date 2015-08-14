@@ -10,20 +10,16 @@
             @endif
         </h1>
 
-        {!! Form::open(['route'=>'quote.store']) !!}
-        
+        {!! Form::model($quote,['route'=>['quote.update',$dmY], 'method'=>'PUT']) !!}
+
         @include('quote._form')
-        
-        <div class="form-group">
-            <Label>Akan tunjuk pada : {{ $willBeShowAt  }}</label>
-        </div>
 
         <div class="form-group text-right">
-            <button class="btn btn-primary">Hantar</button>
+            <button class="btn btn-primary">Kemaskini</button>
         </div>
 
         {!! Form::close() !!}
-
+        
     </div>
 </div>
 @endsection

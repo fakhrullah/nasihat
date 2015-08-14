@@ -33,7 +33,7 @@ Route::get('/',[
 //]);
 
 // Resources -> ayat al quran and hadis
-Route::resource('quote', 'QuoteController',['except' => ['index', 'update', 'destroy']]);
+Route::resource('quote', 'QuoteController',['except' => ['index', 'destroy']]);
 
 // Resources -> backgrounds
 

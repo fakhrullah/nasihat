@@ -33,9 +33,13 @@ class QuoteRequest extends Request
     public function all()
     {
         $lastQuote = \App\Model\Quote::orderBy('show_at', 'desc')->first(['show_at']);
-        
         $data = parent::all();
         $data['show_at'] = \Carbon::createFromFormat('Y-m-d', $lastQuote->show_at)->addDay();
         return $data;
+    }
+    
+    public function updateAllExceptShowAt()
+    {
+        return parent::all();
     }
 }
