@@ -27,12 +27,13 @@ Route::get('/',[
 ]);
 
 // About
-Route::get('about', [
-    'as' => 'about.index',
-    'uses'=> 'PageController@about'
-]);
+//Route::get('about', [
+//    'as' => 'about.index',
+//    'uses'=> 'PageController@about'
+//]);
 
 // Resources -> ayat al quran and hadis
+Route::resource('quote', 'QuoteController',['except' => ['index', 'update', 'show', 'destroy']]);
 
 // Resources -> backgrounds
 

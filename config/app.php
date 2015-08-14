@@ -136,6 +136,8 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Broadcasting\BroadcastServiceProvider',
+		
+		
 
 		/*
 		 * Application Service Providers...
@@ -150,6 +152,7 @@ return [
 		* 
 		*/
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		'Collective\Html\HtmlServiceProvider',
             
 
 	],
@@ -202,6 +205,8 @@ return [
 		
 		// me added alias
 		'Carbon'      => 'Carbon\Carbon',
+		'Form'=> 'Collective\Html\FormFacade', 
+		'Html'=> 'Collective\Html\HtmlFacade',
 
 	],
 
