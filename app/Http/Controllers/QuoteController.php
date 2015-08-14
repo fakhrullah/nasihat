@@ -43,7 +43,8 @@ class QuoteController extends Controller
     {
         //
         \App\Model\Quote::create($request->all());
-        return redirect(route('quote.create'));
+        return redirect(route('quote.create'))
+            ->with(['status'=>'Berjaya memasukkan petikan baru']);
     }
 
     /**
@@ -90,7 +91,8 @@ class QuoteController extends Controller
         
         $quote->update($request->updateAllExceptShowAt());
         
-        return redirect(route('quote.edit',$dmY));
+        return redirect(route('quote.edit',$dmY))
+                ->with(['status'=>'Berjaya mengubah petikan ini.']);;
     }
 
     /**

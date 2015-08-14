@@ -16,7 +16,7 @@
 
 <div class="form-group">
     <label for="sourceLinkInput">Pautan Sumber</label>
-    {!! Form::text('source_link', null, ['id'=>'sourceLinkInput', 
+    {!! Form::url('source_link', null, ['id'=>'sourceLinkInput', 
     'class'=>'form-control', 
     'placeholder'=>'http://example.com']) !!}
 </div>

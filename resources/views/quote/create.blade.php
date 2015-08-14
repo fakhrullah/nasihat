@@ -9,7 +9,10 @@
             <small>{{$titleSmall}}</small>
             @endif
         </h1>
-
+        
+        @include('partial._status')
+        @include('partial._errors')
+        
         {!! Form::open(['route'=>'quote.store']) !!}
         
         @include('quote._form')

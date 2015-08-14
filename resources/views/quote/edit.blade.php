@@ -10,6 +10,9 @@
             @endif
         </h1>
 
+        @include('partial._status')
+        @include('partial._errors')
+
         {!! Form::model($quote,['route'=>['quote.update',$dmY], 'method'=>'PUT']) !!}
 
         @include('quote._form')
