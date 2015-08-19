@@ -90,9 +90,17 @@ class BackgroundController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Requests\BackgroundRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        return 'update'+$id;
+        // get entry from db
+        $background = \App\Model\Background::find($id);
+        
+        // set to date it will show which last show_at available in data + 1 day
+        $backgroundLast = \App\Model\Background::orderBy('show_at', 'desc')->first(['show_at']);
+        $background->show_at = $backgroundLast->show_at->addDay();
+        $background->save();
+        
+        return redirect(route('background.index'))->with('status','gambar berjaya diset');
     }
 
     /**
@@ -103,6 +111,18 @@ class BackgroundController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // get entry from db
+        $background = \App\Model\Background::find($id);
+        
+        $file = public_path().'/uploads/backgrounds/'.$background->src.'.jpg';
+        // delete from storage 
+        \File::delete($file);
+        
+        // delete entry from db
+        if(!\File::exists($file)){
+            $background->delete();
+        }
+        
+        return redirect(route('background.index'))->with('status','gambar berjaya dibuang');
     }
 }
