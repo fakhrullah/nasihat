@@ -11,4 +11,9 @@ class Quote extends Model
         'source', 
         'source_link', 
         'show_at'];
+    
+    public function getShowAtAttribute($date)
+    {
+        return \Carbon::createFromFormat('Y-m-d', $date);
+    }
 }

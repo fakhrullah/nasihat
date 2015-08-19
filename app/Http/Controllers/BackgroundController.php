@@ -16,7 +16,12 @@ class BackgroundController extends Controller
      */
     public function index()
     {
+        $title = "Backgrounds";
+        $backgrounds = \App\Model\Background::where('show_at','0000-00-00')->get();
+        $backgroundLast = \App\Model\Background::orderBy('show_at', 'DESC')->first(['show_at']);
+        $quoteLast = \App\Model\Quote::orderBy('show_at', 'desc')->first(['show_at']);
         
+        return view('background.index', compact('title', 'backgrounds', 'quoteLast', 'backgroundLast'));
     }
 
     /**
@@ -47,7 +52,7 @@ class BackgroundController extends Controller
         $request->file('background')->move( $backgroundDestionation, $backgroundName.'.'.$fileExt);
         
         // add to db only if background added to storage
-        if(\File::exists($backgroundDestionation)){
+        if(\File::exists($backgroundDestionation.'/'.$backgroundName.'.'.$fileExt)){
             $background = new \App\Model\Background();
             $background->src = $backgroundName.'.'.$fileExt;
             $background->save();
@@ -85,9 +90,9 @@ class BackgroundController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\BackgroundRequest $request, $id)
     {
-        //
+        return 'update'+$id;
     }
 
     /**

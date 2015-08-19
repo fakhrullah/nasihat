@@ -29,7 +29,7 @@ class QuoteController extends Controller
         $title = "Add New Quote";
         $titleSmall = "From Al-Quran Or Hadith (sahih only)";
         $lastQuoteShowTime = \App\Model\Quote::orderBy('show_at', 'desc')->first(['show_at']);
-        $willBeShowAt = \Carbon::createFromFormat('Y-m-d', $lastQuoteShowTime->show_at)->addDay()->format('Y-m-d');
+        $willBeShowAt = $lastQuoteShowTime->show_at->addDay()->format('Y-m-d');
         return view('quote.create', compact('title', 'titleSmall', 'willBeShowAt'));
     }
 
