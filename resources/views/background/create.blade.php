@@ -10,7 +10,7 @@
         @include('partial._status')
         @include('partial._errors')
         
-        {!! Form::open(['route'=>'background.store']) !!}
+        {!! Form::open(['route'=>'background.store', 'files'=>true]) !!}
         
         @include('background._form')
 

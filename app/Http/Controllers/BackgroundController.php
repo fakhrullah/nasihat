@@ -37,9 +37,23 @@ class BackgroundController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Requests\BackgroundRequest $request)
     {
-        //
+        $backgroundName = str_random();
+        $backgroundDestionation = public_path().'/uploads/backgrounds/';
+        
+        // add file to storage
+        $fileExt = $request->file('background')->getClientOriginalExtension();
+        $request->file('background')->move( $backgroundDestionation, $backgroundName.'.'.$fileExt);
+        
+        // add to db only if background added to storage
+        if(\File::exists($backgroundDestionation)){
+            $background = new \App\Model\Background();
+            $background->src = $backgroundName.'.'.$fileExt;
+            $background->save();
+        }
+        
+        return redirect(route('background.create'))->with('status','gambar berjaya dimuatnaik');
     }
 
     /**
