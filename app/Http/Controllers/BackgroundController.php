@@ -26,7 +26,9 @@ class BackgroundController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Upload image';
+        
+        return view('background.create', compact('title'));
     }
 
     /**
