@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class BackgroundController extends Controller
 {
+    public function __construct() 
+    {  
+        // Use middleware only on some functions
+        $this->middleware('auth', ['only' => 'index', 'update', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -97,7 +102,15 @@ class BackgroundController extends Controller
         
         // set to date it will show which last show_at available in data + 1 day
         $backgroundLast = \App\Model\Background::orderBy('show_at', 'desc')->first(['show_at']);
-        $background->show_at = $backgroundLast->show_at->addDay();
+        
+        // if there is no setted background set background to show today
+        if($backgroundLast->show_at->format('Y-m-d') == \Carbon::create(0,0,0)->format('Y-m-d')){
+            $background->show_at = \Carbon::today();
+            
+        }else{
+            $background->show_at = $backgroundLast->show_at->addDay();
+        }
+        
         $background->save();
         
         return redirect(route('background.index'))->with('status','gambar berjaya diset');
@@ -114,10 +127,11 @@ class BackgroundController extends Controller
         // get entry from db
         $background = \App\Model\Background::find($id);
         
-        $file = public_path().'/uploads/backgrounds/'.$background->src.'.jpg';
+        $file = public_path().'/uploads/backgrounds/'.$background->src;
+        
         // delete from storage 
         \File::delete($file);
-        
+            
         // delete entry from db
         if(!\File::exists($file)){
             $background->delete();

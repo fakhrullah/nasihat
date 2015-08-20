@@ -13,6 +13,9 @@ class BackgroundRequest extends Request
      */
     public function authorize()
     {
+        if($this->get('manusia')!='dua'){
+            return false;
+        }
         return true;
     }
 
