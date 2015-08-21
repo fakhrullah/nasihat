@@ -59,7 +59,9 @@ class BackgroundController extends Controller
         // add to db only if background added to storage
         if(\File::exists($backgroundDestionation.'/'.$backgroundName.'.'.$fileExt)){
             $background = new \App\Model\Background();
-            $background->src = $backgroundName.'.'.$fileExt;
+            $background->src = 'uploads/backgrounds/'.$backgroundName.'.'.$fileExt;
+            $background->uploader = $request->uploader;
+            $background->link = $request->link;
             $background->save();
         }
         
@@ -127,7 +129,7 @@ class BackgroundController extends Controller
         // get entry from db
         $background = \App\Model\Background::find($id);
         
-        $file = public_path().'/uploads/backgrounds/'.$background->src;
+        $file = public_path().'/'.$background->src;
         
         // delete from storage 
         \File::delete($file);

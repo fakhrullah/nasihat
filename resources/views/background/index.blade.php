@@ -33,7 +33,7 @@
         <div class="row">
             @foreach($backgrounds as $background)
             <div class="col-sm-4">
-                <img src="{{URL::asset('uploads/backgrounds/'.$background->src)}}" height="200"/>
+                <img src="{{URL::asset($background->src)}}" height="200"/>
                 {!! Form::open(['route'=>['background.update',$background->id], 'method'=>'PUT' ]) !!}
                 {!! Form::submit('SET', ['class'=>'btn btn-default']) !!}
                 {!! Form::close() !!}

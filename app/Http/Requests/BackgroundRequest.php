@@ -27,7 +27,9 @@ class BackgroundRequest extends Request
     public function rules()
     {
         return [
-            'background' => 'max:1000|required|mimes:jpg,jpeg,JPG'
+            'background' => 'max:1000|required|mimes:jpg,jpeg,JPG',
+            'uploader' => 'max:16|required_with:link',
+            'link' => 'max:255|url'
         ];
     }
 }
