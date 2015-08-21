@@ -43,6 +43,7 @@ class QuoteController extends Controller
     {
         //
         \App\Model\Quote::create($request->all());
+        
         return redirect(route('quote.create'))
             ->with(['status'=>'Berjaya memasukkan petikan baru']);
     }
@@ -56,11 +57,16 @@ class QuoteController extends Controller
     public function show($dmY)
     {
         $title = 'Nasihat '.$dmY;
-        $background = \URL::asset('images/'.$dmY.'.jpg');
         $showAt = \Carbon::createFromFormat('dmY', $dmY)->format('Y-m-d');
+        $background = \App\Model\Background::where('show_at', $showAt)->first();
         $quote = \App\Model\Quote::where('show_at', '=', $showAt)->first();
         
-        return view('main', compact('title', 'quote', 'background', 'willBeShowAt'));
+        // failsafe
+        if(!$quote) {
+            $quote = \App\Model\Quote::where('show_at',  \Carbon::create(2015,8,12)->format('Y-m-d'))->first();
+        }
+        
+        return view('main', compact('title', 'quote', 'background'));
     }
 
     /**
