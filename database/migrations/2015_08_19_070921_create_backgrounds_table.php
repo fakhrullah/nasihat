@@ -15,6 +15,8 @@ class CreateBackgroundsTable extends Migration
         Schema::create('backgrounds', function (Blueprint $table) {
             $table->increments('id');
             $table->string('src');
+            $table->string('uploader', 16);
+            $table->string('link');
             $table->date('show_at');
             $table->timestamps();
         });
