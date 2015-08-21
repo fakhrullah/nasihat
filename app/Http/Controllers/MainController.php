@@ -20,7 +20,7 @@ class MainController extends Controller
         
         // failsafe
         if(!$quote) {
-            $quote = \App\Model\Quote::where('show_at',  \Carbon::create(2015,8,12))->first();
+            $quote = \App\Model\Quote::where('show_at',  \Carbon::create(2015,8,12)->format('Y-m-d'))->first();
         }
         
         return view('main', compact('title','quote','background'));
