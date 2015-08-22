@@ -13,7 +13,9 @@ class QuoteRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        if(\Auth::check()) return true;
+        
+        return false;
     }
 
     /**

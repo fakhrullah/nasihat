@@ -15,14 +15,16 @@ class MainController extends Controller
     {
         $title = 'Nasihat';
         $today = \Carbon::today();
-        $quote = \App\Model\Quote::where('show_at', '=', $today)->first();
-        $background = \URL::asset('images/'.$today->format('dmY') . '.jpg');
+        $quote = \App\Model\Quote::where('show_at', $today)->first();
+        $background = \App\Model\Background::where('show_at', $today)->first();
         
         // failsafe
         if(!$quote) {
-            $quote = \App\Model\Quote::where('show_at', '=', '2015-08-12')->first();
-            $background = \URL::asset('images/12082015.jpg');
-        }        
+            $quote = \App\Model\Quote::where('show_at',  \Carbon::create(2015,8,12)->format('Y-m-d'))->first();
+        }
+        if(!$background){
+            $background = \App\Model\Background::where('show_at', \Carbon::create(2015,8,12)->format('Y-m-d'))->first();
+        }
         
         return view('main', compact('title','quote','background'));
     }

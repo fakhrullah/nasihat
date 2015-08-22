@@ -6,7 +6,7 @@
     </head>
     
     <body>
-        <div id="quoteBackground" class="quote-background" data-image="{{$background}}">
+        <div id="quoteBackground" class="quote-background" data-image="{{URL::asset($background->src)}}">
             <div id="quote" class="quote">
                 {{$quote->text}}
                 <div class="source">

@@ -36,4 +36,4 @@ Route::get('/',[
 Route::resource('quote', 'QuoteController',['except' => ['index', 'destroy']]);
 
 // Resources -> backgrounds
-
+Route::resource('background', 'BackgroundController',['except' => [ 'edit', 'show']]);
