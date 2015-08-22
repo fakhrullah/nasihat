@@ -22,6 +22,9 @@ class MainController extends Controller
         if(!$quote) {
             $quote = \App\Model\Quote::where('show_at',  \Carbon::create(2015,8,12)->format('Y-m-d'))->first();
         }
+        if(!$background){
+            $background = \App\Model\Background::where('show_at', \Carbon::create(2015,8,12)->format('Y-m-d'))->first();
+        }
         
         return view('main', compact('title','quote','background'));
     }
