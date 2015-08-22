@@ -36,7 +36,7 @@ class QuoteRequest extends Request
     {
         $lastQuote = \App\Model\Quote::orderBy('show_at', 'desc')->first(['show_at']);
         $data = parent::all();
-        $data['show_at'] = \Carbon::createFromFormat('Y-m-d', $lastQuote->show_at)->addDay();
+        $data['show_at'] = $lastQuote->show_at->addDay();
         return $data;
     }
     
