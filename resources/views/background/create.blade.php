@@ -14,12 +14,7 @@
 
         @include('background._form')
 
-        <div class="form-group">
-            <label for="manusiaInput">Satu tambah satu sama dengan ? <small>jawab dalam perkataan</small></label>
-            {!! Form::text('manusia', null, ['id'=>'manusiaInput', 
-            'class'=>'form-control', 
-            'placeholder'=>'jawab']) !!}
-        </div>
+        {!! app('captcha')->display(); !!}
 
         <div class="form-group text-right">
             <button class="btn btn-primary">Hantar</button>

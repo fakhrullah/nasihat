@@ -153,6 +153,7 @@ return [
 		*/
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Collective\Html\HtmlServiceProvider',
+		Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
             
 
 	],
