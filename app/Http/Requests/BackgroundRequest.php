@@ -13,9 +13,6 @@ class BackgroundRequest extends Request
      */
     public function authorize()
     {
-        if($this->get('manusia')!='dua'){
-            return false;
-        }
         return true;
     }
 
@@ -29,7 +26,8 @@ class BackgroundRequest extends Request
         return [
             'background' => 'max:1000|required|mimes:jpg,jpeg,JPG',
             'uploader' => 'max:16|required_with:link',
-            'link' => 'max:255|url'
+            'link' => 'max:255|url',
+            'g-recaptcha-response' => 'required|captcha'
         ];
     }
 }
