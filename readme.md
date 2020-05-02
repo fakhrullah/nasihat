@@ -1,6 +1,8 @@
+**Abandoned this for [nasihati](https://github.com/fakhrullah/nasihati), same website with javascript and nodejs stack**
+
 # Nasihat
 
-Demo : [nasihat.cakapcakap.com](http://nasihat.cakapcakap.com)
+Demo : nasihat.cakapcakap.com
 _Sesape yang nak sponsor duit untuk aku beli domain, amat dialu-alukan_
 
 Sebuah web yang memaparkan petikan dari quran dan hadis. Web ini dibina sebagai pembelajaran dan eksperimen menggunakan git dan Laravel.
